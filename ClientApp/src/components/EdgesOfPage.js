@@ -1,5 +1,6 @@
 import React from 'react'
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
+import * as icon from 'react-bootstrap-icons';
 
 export const Header = () => 
 {
@@ -18,7 +19,18 @@ export const Footer = () =>
         <div className="fixed-bottom">
         <Navbar bg="primary" variant="dark">
             <Container>
-                <Navbar>Footer :)</Navbar>
+                <Row>
+                    <Col className=".ml-3">
+                    <Nav.Link href="#home">
+                        <icon.House color="black" size={50}/>
+                    </Nav.Link>
+                    </Col>
+                    <Col className=".ml-3">
+                    <Nav.Link href="#home" >
+                        <icon.House color="black" size={50}/>
+                    </Nav.Link>
+                    </Col>
+                </Row>
             </Container>
         </Navbar>
     </div>
