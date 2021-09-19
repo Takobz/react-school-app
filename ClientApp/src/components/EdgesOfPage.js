@@ -7,7 +7,13 @@ export const Header = () =>
     return(
         <Navbar bg="primary" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">SchoolApp</Navbar.Brand>
+                <Row className="mx-auto">
+                    <Col>
+                    <Navbar.Brand href="#home">
+                        SchoolApp
+                    </Navbar.Brand>
+                    </Col>
+                </Row>
             </Container>
         </Navbar>
     );
@@ -19,15 +25,20 @@ export const Footer = () =>
         <div className="fixed-bottom">
         <Navbar bg="primary" variant="dark">
             <Container>
-                <Row>
-                    <Col className=".ml-3">
-                    <Nav.Link href="#home">
-                        <icon.House color="black" size={50}/>
+                <Row className="mx-auto">
+                    <Col className="mx-5">
+                    <Nav.Link href="#home" >
+                        <icon.HouseFill color="black" size={50}/>
                     </Nav.Link>
                     </Col>
-                    <Col className=".ml-3">
+                    <Col className="mx-5">
+                    <Nav.Link href="#home">
+                        <icon.BookHalf color="black" size={50}/>
+                    </Nav.Link>
+                    </Col>
+                    <Col className="mx-5">
                     <Nav.Link href="#home" >
-                        <icon.House color="black" size={50}/>
+                        <icon.PeopleFill color="black" size={50}/>
                     </Nav.Link>
                     </Col>
                 </Row>
