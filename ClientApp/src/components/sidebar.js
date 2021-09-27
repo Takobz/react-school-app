@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import styled from 'styled-components';
+import React from 'react'
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import * as icon from 'react-bootstrap-icons';
-
+import CustomCard from './customCard'
+import {Home} from './Home'
 
 export default class SideBarNav extends React.Component
 {
@@ -60,7 +60,7 @@ render()
                     </SideNav>
                     <Switch>
                         <Route path="/home">
-                            <Home expanded={expanded}/>
+                            <HomePage expanded={expanded}/>
                         </Route>
                         <Route path="/subjects">
                             <Subjects expanded={expanded}/>
@@ -78,11 +78,12 @@ render()
  }
 }
 
-function Home(props) 
+function HomePage(props) 
 {
     return(
     <div style = {{marginLeft: props.expanded ? 240 : 64}}>
       <h2>Home</h2>
+      <Home></Home>
     </div>
     );
 }
