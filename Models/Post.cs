@@ -1,6 +1,6 @@
 namespace SchoolApp.Models
 {
-    public class Posts
+    public class Post
     {
         public int ID { get; set; }
 
