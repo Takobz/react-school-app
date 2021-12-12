@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 
 
-namespace SchoolApp.Models
+namespace SchoolApp.Models.DatabaseModels
 {
     public class Subject
     {

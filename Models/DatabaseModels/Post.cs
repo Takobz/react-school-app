@@ -1,4 +1,4 @@
-namespace SchoolApp.Models
+namespace SchoolApp.Models.DatabaseModels
 {
     public class Post
     {

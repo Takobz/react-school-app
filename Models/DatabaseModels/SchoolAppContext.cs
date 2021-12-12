@@ -1,18 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace SchoolApp.Models
+namespace SchoolApp.Models.DatabaseModels
 {
     public class SchoolAppContext : DbContext, ISchoolAppContext
     {
-        public DbSet<Student> Students;
+        public DbSet<Student> Students {get; set;}
 
-        public DbSet<Subject> Subjects;
+        public DbSet<Subject> Subjects {get; set;}
 
-        public DbSet<Instructor> Instructors;
+        public DbSet<Instructor> Instructors {get; set;}
 
-        public DbSet<Post> Posts;
+        public DbSet<Post> Posts {get; set;}
 
-        public DbSet<Enrollment> Enrollments;
+        public DbSet<Enrollment> Enrollments {get; set;}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,6 +20,11 @@ namespace SchoolApp.Models
                 System.Environment.CurrentDirectory, @"database\SchoolApp.db"
             );
             optionsBuilder.UseSqlite($"Filename={path}");
+        }
+
+        public void SaveChangesToDatabase()
+        {
+            SaveChanges();
         }
     }
 }

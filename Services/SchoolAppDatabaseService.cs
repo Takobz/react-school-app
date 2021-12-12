@@ -1,4 +1,5 @@
-using SchoolApp.Models;
+using SchoolApp.Models.DatabaseModels;
+using SchoolApp.Mappers;
 
 namespace SchoolApp.Services
 {
@@ -12,5 +13,12 @@ namespace SchoolApp.Services
         }
 
         //queries.
+        public void AddStudent(Models.Student student)
+        {
+            var studentDatabaseModel = student.ToDatabaseModel();
+
+            schoolContext.Students.Add(studentDatabaseModel);
+            schoolContext.SaveChangesToDatabase();
+        }
     }
 }
