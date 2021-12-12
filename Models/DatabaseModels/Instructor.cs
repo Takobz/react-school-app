@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SchoolApp.Models
+namespace SchoolApp.Models.DatabaseModels
 {
     public class Instructor
     {
