@@ -1,6 +1,7 @@
 using SchoolApp.Models.DatabaseModels;
 using SchoolApp.Mappers;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SchoolApp.Services
 {
@@ -48,6 +49,41 @@ namespace SchoolApp.Services
                 return null;
             }
             return instructorDatabaseModel.ToInstructorModel();
+        }
+
+        public void CreateSubject(Models.Subject subject)
+        {
+            var subjectDatabaseModel = subject.ToDatabaseModel();
+
+            schoolContext.Subjects.Add(subjectDatabaseModel);
+            schoolContext.SaveChangesToDatabase();
+        }
+
+        public Models.Subject GetSubjectById(int SubjectId)
+        {
+            var Subject = schoolContext.Subjects.FirstOrDefault(x => x.ID == SubjectId);
+
+            if(Subject == null)
+            {
+                return null;
+            }
+            return Subject.ToSubjectModel();
+        }
+
+        public Models.Subject GetSubjectByName(string SubjectName)
+        {
+            var Subject = schoolContext.Subjects.FirstOrDefault(x => x.Name == SubjectName);
+
+            if(Subject == null)
+            {
+                return null;
+            }
+            return Subject.ToSubjectModel();
+        }
+
+        public List<Models.Subject> GetAllSubjects()
+        {
+            return schoolContext.Subjects.Select(x => x.ToSubjectModel()).ToList();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SchoolApp.Models.DatabaseModels
 
         public string Surname { get; set; }
 
-        public int? SubjectID { get; set; }
+        public int? SubjectId { get; set; }
 
         //navigation key
         public ICollection<Subject> Subjects { get; set; }

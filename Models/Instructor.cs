@@ -8,6 +8,6 @@ namespace SchoolApp.Models
 
         public string Surname { get; set; }
 
-        public int? SubjectID { get; set; }
+        public int? SubjectId { get; set; }
     }
 }
