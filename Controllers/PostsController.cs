@@ -6,6 +6,9 @@ namespace SchoolApp.Controllers
     [Route("[controller]")]
     public class PostsController : ControllerBase
     {
-        
+        public PostsController()
+        {
+            
+        }
     }
 }
