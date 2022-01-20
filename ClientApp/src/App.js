@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Header, Footer } from './components/EdgesOfPage';
-
 import './custom.css'
+import SideBarNav from './components/sidebar';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -9,8 +9,8 @@ export default class App extends Component {
   render () {
     return (
       <div className="App">
-        <Header></Header>
-        <Footer></Footer>
+        <Header/>
+        <SideBarNav/>
       </div>
     );
   }
