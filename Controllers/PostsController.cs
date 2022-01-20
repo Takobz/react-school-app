@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SchoolApp.Services;
 
 namespace SchoolApp.Controllers
 {
@@ -6,9 +7,21 @@ namespace SchoolApp.Controllers
     [Route("[controller]")]
     public class PostsController : ControllerBase
     {
-        public PostsController()
+        private readonly ISchoolAppDatabaseService schoolAppDatabaseService;
+        public PostsController(ISchoolAppDatabaseService schoolAppDatabaseService)
         {
-            
+            this.schoolAppDatabaseService = schoolAppDatabaseService;
         }
+
+        [Route("create")]
+        [HttpPost]
+        public IActionResult CreatePost()
+        {
+            //TODO: Finish post 
+            return Ok();
+        }
+
+        //get posts.
+        //get post.
     }
 }
