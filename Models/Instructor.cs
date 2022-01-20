@@ -1,6 +1,4 @@
-using System.Collections.Generic;
-
-namespace SchoolApp.Models.DatabaseModels
+namespace SchoolApp.Models
 {
     public class Instructor
     {
@@ -11,8 +9,5 @@ namespace SchoolApp.Models.DatabaseModels
         public string Surname { get; set; }
 
         public int? SubjectId { get; set; }
-
-        //navigation key
-        public ICollection<Subject> Subjects { get; set; }
     }
 }
