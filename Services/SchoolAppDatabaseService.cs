@@ -2,6 +2,7 @@ using SchoolApp.Models.DatabaseModels;
 using SchoolApp.Mappers;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace SchoolApp.Services
 {
@@ -84,6 +85,14 @@ namespace SchoolApp.Services
         public List<Models.Subject> GetAllSubjects()
         {
             return schoolContext.Subjects.Select(x => x.ToSubjectModel()).ToList();
+        }
+
+        public void CreatePost(Models.Post model)
+        {
+            var databaseModel = model.ToDatabaseModel();
+
+            schoolContext.Posts.Add(databaseModel);
+            schoolContext.SaveChangesToDatabase();
         }
     }
 }

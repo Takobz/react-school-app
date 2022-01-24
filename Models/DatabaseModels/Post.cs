@@ -1,18 +1,21 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SchoolApp.Models.DatabaseModels
 {
     public class Post
     {
         public int ID { get; set; }
 
-        public string Text { get; set; }
+        public string Info { get; set; }
 
         public string Heading { get; set; }
 
+        [Column("SUB_ID")]
         public int SubjectID { get; set; }
 
-        public int InstructorID { get; set; }
+        [Column("INSTRUCTOR_ID")]
+        public int InstructorID { get; set;}
 
-        public Subject Subject { get; set; }
-        public Instructor Instructor { get; set;}
+        //TODO: Fix database call.
     }
 }

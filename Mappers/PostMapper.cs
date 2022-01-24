@@ -6,9 +6,10 @@ namespace SchoolApp.Mappers
         {
             return new SchoolApp.Models.DatabaseModels.Post
             {
-                Text = model.Text,
+                Info = model.Info,
                 Heading = model.Heading,
-                Subject = model.Subject.ToDatabaseModel()
+                SubjectID = model.SubjectID,
+                InstructorID = model.InstructorID
             };
         }
 
@@ -16,9 +17,10 @@ namespace SchoolApp.Mappers
         {
             return new SchoolApp.Models.Post
             {
-                Text = databaseModel.Text,
+                Info = databaseModel.Info,
                 Heading = databaseModel.Heading,
-                Subject = databaseModel.Subject.ToSubjectModel()
+                SubjectID = databaseModel.SubjectID,
+                InstructorID = databaseModel.InstructorID
             };
         }
     }
