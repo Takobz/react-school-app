@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SchoolApp.Services;
+using SchoolApp.Models;
 
 namespace SchoolApp.Controllers
 {
@@ -15,13 +16,29 @@ namespace SchoolApp.Controllers
 
         [Route("create")]
         [HttpPost]
-        public IActionResult CreatePost()
+        public IActionResult CreatePost(string heading, string text, string subjectName, int instructorId)
         {
-            //TODO: Finish post 
-            return Ok();
-        }
+            if(string.IsNullOrEmpty(heading) || string.IsNullOrEmpty(text))
+            {
+                return BadRequest("Heading Or Body Of Post Can't Be Empty.");
+            }
 
-        //get posts.
-        //get post.
+            var subject = schoolAppDatabaseService.GetSubjectByName(subjectName);
+            if(subject == null)
+            {
+                return BadRequest($"Can't Find Subject with {subjectName}");
+            }
+
+            var postModel = new Post
+            {
+                SubjectID = subject.ID,
+                InstructorID = instructorId,
+                Info = text,
+                Heading = heading
+            };
+
+            schoolAppDatabaseService.CreatePost(postModel);
+            return Ok("Subject Created.");
+        }
     }
 }
