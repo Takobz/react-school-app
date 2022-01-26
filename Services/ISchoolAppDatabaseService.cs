@@ -21,5 +21,11 @@ namespace SchoolApp.Services
         public List<Models.Subject> GetAllSubjects();
 
         public void CreatePost(SchoolApp.Models.Post post);
+        
+        public Models.Post GetPostById(int postId);
+
+        public List<Models.Post> GetPostsByInstructor(int instructorId);
+
+        public List<Models.Post> GetPostsForSubject(int subjectId);
     }
 }

@@ -4,8 +4,6 @@ using SchoolApp.Models;
 
 namespace SchoolApp.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
     public class PostsController : ControllerBase
     {
         private readonly ISchoolAppDatabaseService schoolAppDatabaseService;
@@ -14,7 +12,7 @@ namespace SchoolApp.Controllers
             this.schoolAppDatabaseService = schoolAppDatabaseService;
         }
 
-        [Route("create")]
+        [Route("api/posts/create")]
         [HttpPost]
         public IActionResult CreatePost(string heading, string text, string subjectName, int instructorId)
         {
@@ -38,7 +36,47 @@ namespace SchoolApp.Controllers
             };
 
             schoolAppDatabaseService.CreatePost(postModel);
-            return Ok("Subject Created.");
+            return Ok("Post Created.");
+        }
+
+        [Route("api/posts/getPostById")]
+        [HttpGet]
+        public IActionResult GetPostById(int postId)
+        {
+            var post = schoolAppDatabaseService.GetPostById(postId);
+            if(post == null)
+            {
+                return NotFound($"Post With Id {postId} doesn't exist");
+            }
+
+            return Ok(post);
+        }
+
+        [Route("api/posts/getPostsByInstructorId")]
+        [HttpGet]
+        public IActionResult GetPostByInstructorId(int instructorId)
+        {
+            var posts = schoolAppDatabaseService.GetPostsByInstructor(instructorId);
+            if(posts == null || posts.Count == 0)
+            {
+                return NotFound($"Instructor Has No Post");
+            }
+
+            return Ok(posts);
+        }
+
+        [Route("api/posts/getPostsForSubject")]
+        [HttpGet]
+        public IActionResult GetPostsForSubject(int subjectId)
+        {
+            var posts = schoolAppDatabaseService.GetPostsForSubject(subjectId);
+
+            if(posts == null || posts.Count == 0)
+            {
+                return NotFound($"No Posts For This Subject");
+            }
+
+            return Ok(posts);
         }
     }
 }

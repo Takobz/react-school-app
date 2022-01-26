@@ -12,8 +12,10 @@ namespace SchoolApp.Models.DatabaseModels
 
         [Column("SUB_ID")]
         public int SubjectID { get; set; }
+        public Subject Subject { get; set; }
 
         [Column("INSTRUCTOR_ID")]
-        public int InstructorID { get; set;}
+        public int InstructorID { get; set; }
+        public Instructor Instructor { get; set; }
     }
 }

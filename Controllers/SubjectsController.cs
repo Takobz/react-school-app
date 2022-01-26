@@ -3,10 +3,6 @@ using SchoolApp.Services;
 
 namespace SchoolApp.Controllers
 {
-    //Methods in here should be protected by Role Based Authentication
-    //Certain people should only have the authority to create/delete subjects.
-    // [ApiController]
-    // [Route("controller")]
     public class SubjectsController : ControllerBase
     {
         private readonly ISchoolAppDatabaseService schoolAppDatabaseService;
@@ -36,7 +32,7 @@ namespace SchoolApp.Controllers
             return Ok();
         }
 
-        [Route("getbyid")]
+        [Route("api/subjects/getbyid")]
         [HttpGet]
         public IActionResult GetSubjectById(int? id)
         {
@@ -53,7 +49,7 @@ namespace SchoolApp.Controllers
             return Ok(subject);
         }
 
-        [Route("getbyname")]
+        [Route("api/subjects/getbyname")]
         [HttpGet]
         public IActionResult GetSubjectById(string name)
         {
@@ -70,7 +66,7 @@ namespace SchoolApp.Controllers
             return Ok(subject);
         }
 
-        [Route("getall")]
+        [Route("api/subjects/getall")]
         [HttpGet]
         public IActionResult GetSubjectAllSubjects()
         {

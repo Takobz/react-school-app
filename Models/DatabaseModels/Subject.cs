@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 
-
 namespace SchoolApp.Models.DatabaseModels
 {
     public class Subject
@@ -19,5 +18,8 @@ namespace SchoolApp.Models.DatabaseModels
         [Column("INSTRUCTOR_ID")]
          public int? InstructorID { get; set; }
         public Instructor Instructor { get; set; }
+
+        
+        public ICollection<Post> Posts { get; set; }
     }
 }
