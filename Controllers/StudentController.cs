@@ -3,8 +3,6 @@ using SchoolApp.Services;
 
 namespace SchoolApp.Controllers 
 {
-    [ApiController]
-    [Route("[controller]")]
     public class StudentController : ControllerBase 
     {
         private readonly ISchoolAppDatabaseService schoolAppDatabaseService;
@@ -15,7 +13,7 @@ namespace SchoolApp.Controllers
         }
 
         [HttpPost]
-        [Route("add")]
+        [Route("api/student/add")]
         public ActionResult AddStudent(string name, string surname, int? studentNumber)
         {
             if(string.IsNullOrEmpty(name))
@@ -44,7 +42,7 @@ namespace SchoolApp.Controllers
         }
 
         [HttpGet]
-        [Route("get")]
+        [Route("api/student/get")]
         public IActionResult GetStudent(int? studentNumber)
         {
             if(studentNumber == null)

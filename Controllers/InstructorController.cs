@@ -3,8 +3,6 @@ using SchoolApp.Services;
 
 namespace SchoolApp.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
     public class InstructorController :ControllerBase
     {
         private readonly ISchoolAppDatabaseService schoolAppDatabaseService;
@@ -14,7 +12,7 @@ namespace SchoolApp.Controllers
             this.schoolAppDatabaseService = schoolAppDatabaseService;
         }
 
-        [Route("add")]
+        [Route("api/instructor/add")]
         [HttpPost]
         public IActionResult AddInstructor(string name, string surname)
         {
@@ -37,7 +35,7 @@ namespace SchoolApp.Controllers
             return Ok("Instructor created successfully");
         }
 
-        [Route("get")]
+        [Route("api/instructor/get")]
         [HttpGet]
         public IActionResult GetInstructor(int? instructorId)
         {

@@ -93,5 +93,29 @@ namespace SchoolApp.Services
             schoolContext.Posts.Add(databaseModel);
             schoolContext.SaveChangesToDatabase();
         }
+
+        public Models.Post GetPostById(int postId)
+        {
+            var post = schoolContext.Posts.FirstOrDefault(x => x.ID == postId);
+            return post.ToPostModel();
+        }
+
+        public List<Models.Post> GetPostsByInstructor(int instructorId)
+        {
+            var posts = schoolContext.Posts.Where(x => x.InstructorID == instructorId)
+                        .Select(x => x.ToPostModel())
+                        .ToList();
+
+            return posts;
+        }
+
+        public List<Models.Post> GetPostsForSubject(int subjectId)
+        {
+            var posts = schoolContext.Posts.Where(x => x.SubjectID == subjectId)
+                        .Select(x => x.ToPostModel())
+                        .ToList();
+
+            return posts;
+        }
     }
 }

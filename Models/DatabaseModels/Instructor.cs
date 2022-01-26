@@ -14,5 +14,7 @@ namespace SchoolApp.Models.DatabaseModels
 
         //navigation key
         public ICollection<Subject> Subjects { get; set; }
+
+        public ICollection<Post> Posts { get; set; }
     }
 }
