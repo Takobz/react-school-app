@@ -15,7 +15,5 @@ namespace SchoolApp.Models.DatabaseModels
 
         [Column("INSTRUCTOR_ID")]
         public int InstructorID { get; set;}
-
-        //TODO: Fix database call.
     }
 }

@@ -15,6 +15,9 @@ namespace SchoolApp.Models.DatabaseModels
         [Column("DESCREPTION", TypeName = "text")]
         public string DESCRIPTION { get; set; }
 
-        public ICollection<Enrollment> Enrollments { get; set; }
+        //Foreign Key
+        [Column("INSTRUCTOR_ID")]
+         public int? InstructorID { get; set; }
+        public Instructor Instructor { get; set; }
     }
 }

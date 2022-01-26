@@ -5,8 +5,8 @@ namespace SchoolApp.Controllers
 {
     //Methods in here should be protected by Role Based Authentication
     //Certain people should only have the authority to create/delete subjects.
-    [ApiController]
-    [Route("controller")]
+    // [ApiController]
+    // [Route("controller")]
     public class SubjectsController : ControllerBase
     {
         private readonly ISchoolAppDatabaseService schoolAppDatabaseService;
@@ -16,7 +16,7 @@ namespace SchoolApp.Controllers
             this.schoolAppDatabaseService = schoolAppDatabaseService;
         }
 
-        [Route("create")]
+        [Route("api/subjects/create")]
         [HttpPost]
         public IActionResult CreateSubject(string name, string shortName, string description)
         {

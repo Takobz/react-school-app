@@ -6,5 +6,8 @@ namespace SchoolApp.Models.DatabaseModels
         
         public int StudentId { get; set; }
         public int SubjectId { get; set; }
+
+        //navigation key
+        public Subject Subject { get; set; }
     }
 }

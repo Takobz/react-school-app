@@ -23,7 +23,6 @@ namespace SchoolApp.Mappers
                 Name = databaseModel.Name,
                 ShortName = databaseModel.ShortName,
                 Description = databaseModel.DESCRIPTION,
-                Enrollments = databaseModel.Enrollments.Select(x => x.ToEnrollmentModel()).ToList(),
             };
         }
 
