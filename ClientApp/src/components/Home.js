@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
-import * as Scroll from 'react-scroll'
+import React, { Component , useEffect } from 'react';
 
 export class Home extends Component {
+  componentDidMount() 
+  {
+    getSomeData(1);
+  }
+
+  componentDidUpdate()
+  {
+    getSomeData(1);
+  }
 
   render () {
 
-    getSomeData(1);
-    
     return (
       <div>
         
@@ -15,16 +21,20 @@ export class Home extends Component {
   }
 }
 
-function getSomeData(postId) 
+async function getSomeData(postId) 
 {
-  fetch(`http://localhost:5000/api/posts/getPostById?postId=1`)
-    .then(response => {
-      if(!response.ok)
-      {
-        throw new Error(response.statusText);
-      }
-      console.log(response.json())
-    }).catch(error => {
-      console.log(error);
-    });
+  await fetch('http://localhost:5000/api/posts/getPostById?postId=1', {
+    //mode : 'no-cors',
+    method : 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }
+  }).then(response => {
+      return response.json();
+    })
+    .then(data => console.log("my data: " + data))
+    .catch(error => {
+      console.log("my err:" + error);
+  });
 }
