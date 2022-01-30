@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Footer } from './components/EdgesOfPage';
+import { Header } from './components/EdgesOfPage';
 import './custom.css'
 import SideBarNav from './components/sidebar';
 
