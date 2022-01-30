@@ -117,5 +117,13 @@ namespace SchoolApp.Services
 
             return posts;
         }
+
+        public List<Models.Post> GetAllPosts()
+        {
+            var posts = schoolContext.Posts.Select(x => x.ToPostModel())
+                        .ToList();
+
+            return posts;
+        }
     }
 }

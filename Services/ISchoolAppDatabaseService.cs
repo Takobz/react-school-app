@@ -27,5 +27,7 @@ namespace SchoolApp.Services
         public List<Models.Post> GetPostsByInstructor(int instructorId);
 
         public List<Models.Post> GetPostsForSubject(int subjectId);
+
+        public List<Models.Post> GetAllPosts();
     }
 }

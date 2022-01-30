@@ -78,5 +78,19 @@ namespace SchoolApp.Controllers
 
             return Ok(posts);
         }
+
+        [Route("api/posts/getAllPosts")]
+        [HttpGet]
+        public IActionResult GetAllPosts()
+        {
+            var posts = schoolAppDatabaseService.GetAllPosts();
+
+            if(posts == null || posts.Count == 0)
+            {
+                return NotFound($"No Posts For This Subject");
+            }
+
+            return Ok(posts);
+        }
     }
 }
