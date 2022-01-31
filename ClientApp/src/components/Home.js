@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CustomCard from './customCard' 
 
 export class Home extends Component {
 
@@ -10,7 +11,7 @@ export class Home extends Component {
     }
   }
 
-  componentDidMount() 
+  componentDidMount()
   {
     fetch(`http://localhost:5000/api/posts/getAllPosts`,{
     method: 'GET',
@@ -49,7 +50,7 @@ export class Home extends Component {
 render(){
     return (
       <div>
-        <p>{this.state.posts.length}</p>
+        <CustomCard/>
       </div>
     );
   }

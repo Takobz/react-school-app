@@ -19,7 +19,7 @@ export default class CustomCard extends React.Component
     {
         return (
             <Card style = {{width: '18rem'}}>
-                <Card.Img variant="top" src="holder.js/100px180"/>
+                <Card.Img src="images/equation.jpg"/>
                 <Card.Body>
                     <Card.Title>Theorem Of Pythagoras</Card.Title>
                     <Card.Text>
