@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CustomCard from './customCard' 
+import {Container, Row, Col} from 'react-bootstrap'
 
 export class Home extends Component {
 
@@ -50,7 +51,26 @@ export class Home extends Component {
 render(){
     return (
       <div>
-        <CustomCard/>
+        <Container>
+          <Row className="show-grid">
+            <Col lg={12}>
+              <Row className="show-grid">
+                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
+                <CustomCard/>
+                </Col>
+                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
+                  <CustomCard/>
+                </Col>
+                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
+                  <CustomCard/>
+                </Col>
+                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
+                  <CustomCard/>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

@@ -82,7 +82,6 @@ function HomePage(props)
 {
     return(
     <div style = {{marginLeft: props.expanded ? 240 : 64}}>
-      <h2>Home</h2>
       <Home></Home>
     </div>
     );
