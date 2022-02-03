@@ -12,40 +12,9 @@ export class Home extends Component {
     }
   }
 
-  componentDidMount()
+  ComponentDidMount()
   {
-    fetch(`http://localhost:5000/api/posts/getAllPosts`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  })
-    .then(response => {
-      return response.json();
-    })
-    .then(data => this.setState({ posts : data }))
-    .catch(error => {
-      console.error(error);
-    });
-  }
-
-  componentDidUpdate()
-  {
-    fetch(`http://localhost:5000/api/posts/getAllPosts`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }
-  })
-    .then(response => {
-      return response.json();
-    })
-    .then(data => this.setState({ posts : data }))
-    .catch(error => {
-      console.error(error);
-    });
+    this.getAllPosts();
   }
 
 render(){
@@ -73,5 +42,23 @@ render(){
         </Container>
       </div>
     );
+  }
+
+  getAllPosts()
+  {
+    fetch(`http://localhost:5000/api/posts/getAllPosts`,{
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+        })
+        .then(response => {
+        return response.json();
+        })
+        .then(data => this.setState({ posts : data }))
+        .catch(error => {
+        console.error(error);
+        });
   }
 }

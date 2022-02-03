@@ -6,27 +6,51 @@ export default class CustomCard extends React.Component
     constructor(props)
     {
         super(props)
-        this.state = {}
+        this.state = {
+            posts: [],
+        }
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick()
+    componentDidMount()
     {
-        alert('card clicked!!');
+        this.getAllPosts();
     }
 
-    render()
-    {
+    render(){
         return (
             <Card style = {{width: '18rem'}}>
                 <Card.Img src="images/equation.jpg"/>
                 <Card.Body>
                     <Card.Title>Theorem Of Pythagoras</Card.Title>
                     <Card.Text>
-                        If we have a right angled triangle. Then the following is true: r^2 = b^2 + c^2 Where a is the side opposite the right angle b and c are the two agent sides of the traingle.
+                        {this.props.post}
                     </Card.Text>
                 </Card.Body>
             </Card>
-        );
+    );}
+
+
+    fetchAllPosts()
+    {
+        fetch(`http://localhost:5000/api/posts/getAllPosts`,{
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+         })
+        .then(response => {
+        return response.json();
+        })
+        .then(data => this.setState({ posts : data }))
+        .catch(error => {
+        console.error(error);
+        });
     }
-} 
+}
+
+function fetchAllPosts()
+{
+    
+}
