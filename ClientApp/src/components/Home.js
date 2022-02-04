@@ -8,57 +8,57 @@ export class Home extends Component {
   {
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      loading: true,
     }
   }
 
-  ComponentDidMount()
+  componentDidMount()
   {
     this.getAllPosts();
   }
 
-render(){
+  render(){
+    let contents = this.state.loading 
+      ? <p><em>Loading...</em></p>
+      : Home.renderPostsCards(this.state.posts);
+
     return (
       <div>
-        <Container>
-          <Row className="show-grid">
-            <Col lg={12}>
-              <Row className="show-grid">
-                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
-                <CustomCard/>
-                </Col>
-                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
-                  <CustomCard/>
-                </Col>
-                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
-                  <CustomCard/>
-                </Col>
-                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
-                  <CustomCard/>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
+         {contents}
       </div>
     );
   }
 
-  getAllPosts()
+  static renderPostsCards(posts)
   {
-    fetch(`http://localhost:5000/api/posts/getAllPosts`,{
+    return(
+      <Container>
+        <Row className="show-grid">
+          <Col lg={12}>
+            <Row className="show-grid">
+              {posts.map((post) =>
+                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
+                  <CustomCard heading={post.heading} info={post.info}/>
+                </Col>
+              )}
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+
+  async getAllPosts()
+  {
+    var response = await fetch(`http://localhost:5000/api/posts/getAllPosts`,{
         method: 'GET',
         headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
         }
-        })
-        .then(response => {
-        return response.json();
-        })
-        .then(data => this.setState({ posts : data }))
-        .catch(error => {
-        console.error(error);
         });
+    var data = await response.json();
+    this.setState({ posts: data, loading : false });
   }
 }
