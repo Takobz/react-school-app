@@ -68,7 +68,7 @@ namespace SchoolApp.Controllers
 
         [Route("api/subjects/getall")]
         [HttpGet]
-        public IActionResult GetSubjectAllSubjects()
+        public IActionResult GetAllSubjects()
         {
             var subjects = schoolAppDatabaseService.GetAllSubjects();
             if(subjects == null)

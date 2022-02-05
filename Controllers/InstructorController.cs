@@ -52,5 +52,19 @@ namespace SchoolApp.Controllers
 
             return Ok(instructorModel);
         }
+
+        [Route("api/instructor/getAll")]
+        [HttpGet]
+        public IActionResult GetAllInstructors()
+        {
+            var instructors = schoolAppDatabaseService.GetAllInstructors();
+            if(instructors == null || instructors?.Count == 0)
+            {
+                return NotFound("No Instructors Found");
+            }
+
+            //PLEASE REMOVE SUB_ID IN DB.
+            return Ok(instructors);
+        }
     }
 }

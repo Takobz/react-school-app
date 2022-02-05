@@ -14,7 +14,9 @@ namespace SchoolApp.Services
             this.schoolContext = schoolContext;
         }
 
-        //queries.
+        //********************************************
+        //STUDENT QUERIES
+        //********************************************
         public void AddStudent(Models.Student student)
         {
             var studentDatabaseModel = student.ToDatabaseModel();
@@ -33,6 +35,9 @@ namespace SchoolApp.Services
             return studentDatabaseModel.ToStudentModel();
         }
 
+        //********************************************
+        //INSTRUCTOR QUERIES
+        //********************************************
         public void AddInstructor(Models.Instructor instructor)
         {
             var InstructorDatabaseModel = instructor.ToDatabaseModel();
@@ -51,6 +56,17 @@ namespace SchoolApp.Services
             return instructorDatabaseModel.ToInstructorModel();
         }
 
+        public List<Models.Instructor> GetAllInstructors()
+        {
+            var instructors = schoolContext.Instructors.Select(x => x.ToInstructorModel())
+                                .ToList();
+
+            return instructors;
+        }
+
+        //********************************************
+        //SUBJECT QUERIES
+        //********************************************
         public void CreateSubject(Models.Subject subject)
         {
             var subjectDatabaseModel = subject.ToDatabaseModel();
@@ -94,6 +110,9 @@ namespace SchoolApp.Services
             schoolContext.SaveChangesToDatabase();
         }
 
+        //********************************************
+        //POSTS QUERIES
+        //********************************************
         public Models.Post GetPostById(int postId)
         {
             var post = schoolContext.Posts.FirstOrDefault(x => x.ID == postId);
