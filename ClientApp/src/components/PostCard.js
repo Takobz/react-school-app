@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
 import React from "react";
 
-export default class CustomCard extends React.Component
+export default class PostCard extends React.Component
 {
     constructor(props)
     {

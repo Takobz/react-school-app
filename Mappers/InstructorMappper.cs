@@ -10,7 +10,6 @@ namespace SchoolApp.Mappers
                 ID = instructor.ID,
                 Name = instructor.Name,
                 Surname = instructor.Surname,
-                SubjectId = instructor.SubjectId,
             };
         }
 
@@ -21,7 +20,6 @@ namespace SchoolApp.Mappers
                 ID = databaseModel.ID,
                 Name = databaseModel.Name,
                 Surname = databaseModel.Surname,
-                SubjectId = databaseModel.SubjectId,
             };
         }
     }

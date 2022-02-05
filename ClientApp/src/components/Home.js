@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CustomCard from './customCard' 
+import PostCard from './PostCard' 
 import {Container, Row, Col} from 'react-bootstrap'
 
 export class Home extends Component {
@@ -39,7 +39,7 @@ export class Home extends Component {
             <Row className="show-grid">
               {posts.map((post) =>
                 <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
-                  <CustomCard heading={post.heading} info={post.info}/>
+                  <PostCard heading={post.heading} info={post.info}/>
                 </Col>
               )}
             </Row>

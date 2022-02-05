@@ -3,7 +3,6 @@ import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import * as icon from 'react-bootstrap-icons';
-import CustomCard from './customCard'
 import {Home} from './Home'
 
 export default class SideBarNav extends React.Component
