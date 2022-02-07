@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostCard from './PostCard' 
+import PostCard from '../PostCard' 
 import {Container, Row, Col} from 'react-bootstrap'
 
 export class Home extends Component {
@@ -56,7 +56,7 @@ export class Home extends Component {
         headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-        }
+          }
         });
     var data = await response.json();
     this.setState({ posts: data, loading : false });
