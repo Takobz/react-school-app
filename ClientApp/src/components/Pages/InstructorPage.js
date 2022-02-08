@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {InstructorCard} from '../InstructorCard';
+import InstructorCard from '../InstructorCard';
 import {Container, Row, Col} from 'react-bootstrap'
 
 const InstructorPage = (props) =>
@@ -11,32 +11,32 @@ const InstructorPage = (props) =>
 
     async function getAllInstructors()
     {
-        var response = await fetch(`http://localhost:5000/api/instructor/getAll`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        });
-        var data = await response.json();
-        setInstructors(instructors =  data);
+      var response = await fetch(`http://localhost:5000/api/instructor/getAll`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          }
+      });
+      var data = await response.json();
+      setInstructors(data);
+      setLoading(false);
     }
 
     getAllInstructors();
-    }, [instructors]);
+  }, [instructors]);
 
     let contents = loading
     ? <p><em>Loading...</em></p>
-    : renderInstructorCards(instructors)
+    : renderInstructorCards(instructors);
 
     return(
         <div>
             {contents}
         </div>
     );
-}
 
-//TODO: Finish this!!
+}
 
 function renderInstructorCards(instructors) 
 {
@@ -45,9 +45,9 @@ function renderInstructorCards(instructors)
           <Row className="show-grid">
             <Col lg={12}>
               <Row className="show-grid">
-                {instructors.map((instructor) =>
-                  <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
-                    <InstructorCard heading={instructor.name} info={instructor.surname}/>
+                {instructors.map((instructor, i) =>
+                  <Col md={4} style={{ marginTop : 10, marginBottom: 10 }} key={i}>
+                    <InstructorCard name={instructor.name} surname={instructor.surname}/>
                   </Col>
                 )}
               </Row>
@@ -56,6 +56,7 @@ function renderInstructorCards(instructors)
         </Container>
       );
 }
+
 
 
 export default InstructorPage;
