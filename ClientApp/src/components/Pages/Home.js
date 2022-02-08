@@ -37,8 +37,8 @@ export class Home extends Component {
         <Row className="show-grid">
           <Col lg={12}>
             <Row className="show-grid">
-              {posts.map((post) =>
-                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }}>
+              {posts.map((post, i) =>
+                <Col md={4} style={{ marginTop : 10, marginBottom: 10 }} key={i}>
                   <PostCard heading={post.heading} info={post.info}/>
                 </Col>
               )}

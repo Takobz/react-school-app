@@ -4,7 +4,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import * as icon from 'react-bootstrap-icons';
 import {Home} from './Pages/Home'
-import {InstructorPage} from './Pages/InstructorPage'
+import InstructorPage from './Pages/InstructorPage'
 
 export default class SideBarNav extends React.Component
 {
@@ -91,6 +91,7 @@ function Subjects(props)
 {
     return(
     <div style = {{marginLeft: props.expanded ? 240 : 64}}>
+        <InstructorPage></InstructorPage>
     </div>
     );
 }
