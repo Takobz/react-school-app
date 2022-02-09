@@ -36,8 +36,6 @@ const InstructorPage = (props) =>
         </div>
     );
 
-}
-
 function renderInstructorCards(instructors) 
 {
     return(
@@ -57,6 +55,7 @@ function renderInstructorCards(instructors)
       );
 }
 
+}
 
 
 export default InstructorPage;
