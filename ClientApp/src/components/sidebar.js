@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import * as icon from 'react-bootstrap-icons';
 import {Home} from './Pages/Home'
 import InstructorPage from './Pages/InstructorPage'
+import SubjectPage from './Pages/SubjectPage'
 
 export default class SideBarNav extends React.Component
 {
@@ -91,7 +92,7 @@ function Subjects(props)
 {
     return(
     <div style = {{marginLeft: props.expanded ? 240 : 64}}>
-        <InstructorPage></InstructorPage>
+        <SubjectPage/>
     </div>
     );
 }
