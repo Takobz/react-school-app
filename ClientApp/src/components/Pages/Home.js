@@ -55,7 +55,8 @@ export class Home extends Component {
         method: 'GET',
         headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin':'*'
           }
         });
     var data = await response.json();
