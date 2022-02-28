@@ -7,7 +7,7 @@ const InstructorCard = (props) => {
                 "images/account_image.png" : props.imageUrl;
 
 return(
-    <Card style = {{width: '18rem', height: '30rem'}}>
+    <Card style = {{width: '18rem', height: '30rem'}} onClick={handleClick}>
         <Card.Img src={ imgUrl }/>
         <Card.Body>
             <Card.Title>{props.name} {props.surname}</Card.Title>
@@ -17,6 +17,11 @@ return(
         </Card.Body>
     </Card>
     );
+
+    function handleClick()
+    {
+        //TODO:
+    }
 }
 
 export default InstructorCard;
